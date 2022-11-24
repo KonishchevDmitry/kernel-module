@@ -3,5 +3,8 @@
         ".*.*.cmd": true,
         "*.o": true,
         "*.ko": true
+    },
+    "files.associations": {
+        "*.h": "c"
     }
 }

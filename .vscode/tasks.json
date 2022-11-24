@@ -4,7 +4,8 @@
         {
             "label": "Generate compile commands",
             "type": "process",
-            "command": "${workspaceRoot}/.vscode/generate-compile-commands"
+            "command": "${workspaceRoot}/.vscode/generate-compile-commands",
+            "args": ["--out-dir", "../kernel", "."]
         }
     ]
 }

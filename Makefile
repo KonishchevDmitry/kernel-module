@@ -2,7 +2,7 @@
 
 KDIR := /lib/modules/$(shell uname -r)/build
 
-obj-m          += current_affairs.o
+obj-m          += my.o
 EXTRA_CFLAGS   += -DDEBUG
 
 build:
@@ -18,6 +18,11 @@ check:
 	$(KDIR)/scripts/checkpatch.pl --no-tree --show-types -f --max-line-length=95 *.[ch]
 
 	make clean
+
+run: build
+	sudo rmmod my ||:
+	sudo insmod my.ko
+	sudo dmesg
 
 install: build
 	sudo make -C $(KDIR) M=$(PWD) modules_install

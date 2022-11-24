@@ -1,0 +1,8 @@
+/.vscode/compile_commands.json
+/Module.symvers
+/modules.order
+/.*.*.cmd
+/*.ko
+/*.mod
+/*.mod.c
+/*.o

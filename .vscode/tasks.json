@@ -1,0 +1,10 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Generate compile commands",
+            "type": "process",
+            "command": "${workspaceRoot}/.vscode/generate-compile-commands"
+        }
+    ]
+}

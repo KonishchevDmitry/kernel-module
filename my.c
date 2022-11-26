@@ -59,6 +59,8 @@ static void print_process_info(struct task_struct* process, bool print_threads) 
 static void print_all_processes(void) {
 	pr_info("All system processes:\n");
 
+	// See https://reberhardt.com/blog/2020/11/18/my-first-kernel-module.html for
+	// an explanation of how RCU lock works (very unintuitive!)
 	rcu_read_lock();
 
 	// CPU0 idle thread, i.e., the pid 0 task, the (terribly named) swapper/$cpu

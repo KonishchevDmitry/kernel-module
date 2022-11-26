@@ -3,7 +3,8 @@
 KDIR := /lib/modules/$(shell uname -r)/build
 
 obj-m        += my.o
-EXTRA_CFLAGS += -DDEBUG
+EXTRA_CFLAGS += -DDEBUG -Wno-declaration-after-statement
+
 IGNORE_LINTS := SPDX_LICENSE_TAG,BRACES,OPEN_BRACE,LINE_SPACING,POINTER_LOCATION
 
 build:

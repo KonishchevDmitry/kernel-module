@@ -1,0 +1,20 @@
+sudo apt install git fakeroot build-essential tar ncurses-dev tar xz-utils libssl-dev bc stress python3-distutils libelf-dev linux-headers-$(uname -r) bison flex libncurses5-dev util-linux net-tools linux-tools-$(uname -r) exuberant-ctags cscope sysfsutils gnome-system-monitor curl perf-tools-unstable gnuplot rt-tests indent tree smem libnuma-dev numactl hwloc bpfcc-tools sparse flawfinder cppcheck tuna openjdk-16-jre trace-cmd virt-what dwarves
+
+/etc/default/grub:
+GRUB_TIMEOUT_STYLE=menu
+GRUB_TIMEOUT=2
+GRUB_CMDLINE_LINUX_DEFAULT=""
+
+sudo update-grub
+sudo apt install linux-image-5.4.0-131-generic
+
+git clone git@github.com:PacktPublishing/Linux-Kernel-Programming.git book
+git remote add upstream git://git.kernel.org/pub/scm/linux/kernel/git/stable/linux-stable.git
+
+lsmod > /tmp/lsmod.now
+make LSMOD=/tmp/lsmod.now localmodconfig
+make menuconfig
+
+make
+sudo make modules_install
+sudo make install
